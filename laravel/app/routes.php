@@ -15,3 +15,5 @@ Route::get('/', function()
 {
 	return View::make('hello');
 });
+
+Route::get('/item/{item_id}', 'ItemController@getItemById');

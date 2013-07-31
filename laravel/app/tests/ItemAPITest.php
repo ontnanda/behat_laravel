@@ -1,16 +1,14 @@
 <?php
 
-class ExampleTest extends TestCase {
+class ItemAPITest extends TestCase {
 
 	/**
 	 * A basic functional test example.
 	 *
 	 * @return void
 	 */
-	public function testBasicExample()
-	{
-		$crawler = $this->client->request('GET', '/');
-
+	public function testGetItemById(){
+		$crawler = $this->client->request('GET', '/item/10');
 		$this->assertTrue($this->client->getResponse()->isOk());
 	}
 

@@ -12,10 +12,10 @@ class HomePageFeatureContext extends BaseContext {
     /**
     * @Given /^I want to buy a second hand car$/
     **/
-    public function iWantToBuyASecondHandCar()
-    {
+    public function iWantToBuyASecondHandCar(){
       throw new PendingException();
     }
+
 
     /**
     * @When /^I open dealfish$/
