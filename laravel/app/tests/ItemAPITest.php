@@ -11,9 +11,9 @@ class ItemAPITest extends TestCase {
 	 * @return void
 	 */
 	public function testGetItemById(){
-    $mockedService = Mockery::mock('services\DealfishService'); 
+    $mockedService = Mockery::mock('DealfishService'); 
     $mockedService->shouldReceive('findItemById')->with(10)->once()->andReturn('Foo');
-    $this->app->instance('services\DealfishService', $mockedService);
+    $this->app->instance('DealfishService', $mockedService);
 
     $crawler = $this->client->request('GET', '/item/10');
 		$this->assertTrue($this->client->getResponse()->isOk());

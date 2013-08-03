@@ -18,5 +18,5 @@ Route::get('/', function()
 
 Route::get('/item/{item_id}', 'ItemController@getItemById');
 
-App::bind('services\DealfishService', 'services\impl\DealfishServiceEloquent');
+App::bind('DealfishService', 'DealfishServiceEloquent');
 
