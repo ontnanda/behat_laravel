@@ -5,7 +5,8 @@
 	"require": {
 		"laravel/framework": "4.0.*",
     "guilhermeguitte/behat-laravel": "dev-master",
-    "phpunit/phpunit": "3.7.*"
+    "phpunit/phpunit": "3.7.*",
+    "Mockery/Mockery": ">=0.7.2"
 	},
 	"autoload": {
 		"classmap": [
