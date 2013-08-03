@@ -8,6 +8,5 @@ class ItemController extends BaseController{
 
   public function getItemById($item_id){
     $item = $this->dealfishService->findItemById($item_id);
-    var_dump($item);
   } 
 }
