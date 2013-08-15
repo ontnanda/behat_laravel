@@ -55,7 +55,7 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'dealfish_cls_00',
+			'database'  => 'myclassified',
 			'username'  => 'root',
 			'password'  => '',
 			'charset'   => 'utf8',
