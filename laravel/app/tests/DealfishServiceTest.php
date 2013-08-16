@@ -1,19 +1,14 @@
 <?php
+use Way\Tests\Factory;
 class DealfishServiceTest extends TestCase{
-  public function __construct(){
-    $this->mock = Mockery::mock('Eloquent', 'Member');
-  }
-
   public function teardown(){
     \Mockery::close();
   } 
-
-  public function testGetMemberByEmail(){
-    $target_email = 'valid@email.com';
-    $this->mock->shouldReceive('where')->with('email', '=', $target_email)->once()->andReturn($target_email); 
-    $this->app->instance('Member', $this->mock);
-
-    $dealfishService = new DealfishServiceEloquent($this->mock);
-    $this->assertNotNull($dealfishService->findMemberByEmail($target_email));
-  }
-} 
+  public function testGetMemberByExistingEmail(){
+    $mockedDBQuery = \Mockery::mock('Member');
+    $mockedDBQuery->shouldReceive('where')->once()->andReturn($mockedDBQuery);
+    $mockedDBQuery->shouldReceive('count')->once()->andReturn(1);
+    $dealfish = new DealfishServiceEloquent($mockedDBQuery);
+    $this->assertNotNull($dealfish->checkExistingEmail('notexisting@email.com'));
+  } 
+}

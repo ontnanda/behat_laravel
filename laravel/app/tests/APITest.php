@@ -1,4 +1,5 @@
 <?php
+use Way\Tests\Factory;
 class APITest extends TestCase {
   public function teardown(){
     \Mockery::close();
@@ -28,5 +29,9 @@ class APITest extends TestCase {
     $data = json_decode($content);
     $this->assertJson($content);
     $this->assertEquals('fail', $data->check_result);
+  }
+
+  public function testFactory(){
+    $member =  Factory::make('Member');
   }
 }

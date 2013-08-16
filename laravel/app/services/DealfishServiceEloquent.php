@@ -1,7 +1,7 @@
 <?php
 class DealfishServiceEloquent implements DealfishService{
   private $member;
-  public function __construct(Member $member){
+  public function __construct($member){
     $this->member = $member;
   }
 
@@ -10,6 +10,10 @@ class DealfishServiceEloquent implements DealfishService{
   }
 
   public function findMemberByEmail($email){
-    return  $this->member->where('email', '=', $email);
+    return \Member::where('email', '=', $email)->firstOrFail();
+  }
+
+  public function checkExistingEmail($email){
+    return $this->member->where('email', '=', $email)->count();
   }
 }

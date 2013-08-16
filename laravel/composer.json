@@ -6,8 +6,12 @@
 		"laravel/framework": "4.0.*",
     "guilhermeguitte/behat-laravel": "dev-master",
     "phpunit/phpunit": "3.7.*",
-    "Mockery/Mockery": ">=0.7.2"
+    "Mockery/Mockery": ">=0.7.2",
+    "way/generators": "dev-master"
 	},
+  "require-dev":{
+    "way/laravel-test-helpers": "dev-master"
+  },
 	"autoload": {
 		"classmap": [
 			"app/commands",

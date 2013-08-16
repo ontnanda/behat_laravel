@@ -9,7 +9,7 @@ class APIController extends BaseController{
   public function getMemberByEmail(){
     $email = Input::get('email');
     $member =  $this->dealfishService->findMemberByEmail($email);
-    echo($member);
+    
     if($member==0){
       return Response::json(array('check_result'=>'ok'), 200);
     }else{
