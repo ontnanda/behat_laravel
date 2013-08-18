@@ -8,7 +8,7 @@ class APITest extends TestCase {
   public function testCheckemailWithVelidEmail(){
     $target_email = "valid_email@gmail.com";
     $mockedService = Mockery::mock('DealfishService');
-    $mockedService->shouldReceive('findMemberByEmail')->with($target_email)->once()->andReturn(0); 
+    $mockedService->shouldReceive('checkExistingEmail')->with($target_email)->once()->andReturn(0); 
     $this->app->instance('DealfishService', $mockedService);
 
     $response = $this->call('POST', '/member/checkEmail', array('email'=>$target_email));
@@ -21,7 +21,7 @@ class APITest extends TestCase {
   public function testCheckEmailWithDuplicateEmail(){
     $duplicate_email = "duplicate@gmail.com";
     $mockedService = Mockery::mock('DealfishService');
-    $mockedService->shouldReceive('findMemberByEmail')->with($duplicate_email)->once()->andReturn(1); 
+    $mockedService->shouldReceive('checkExistingEmail')->with($duplicate_email)->once()->andReturn(1); 
     $this->app->instance('DealfishService', $mockedService);
 
     $response = $this->call('POST', '/member/checkEmail', array('email'=>$duplicate_email));
@@ -29,9 +29,5 @@ class APITest extends TestCase {
     $data = json_decode($content);
     $this->assertJson($content);
     $this->assertEquals('fail', $data->check_result);
-  }
-
-  public function testFactory(){
-    $member =  Factory::make('Member');
   }
 }

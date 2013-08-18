@@ -7,8 +7,11 @@ class APIController extends BaseController{
   }
 
   public function getMemberByEmail(){
+    Log::warning("Warning************************");
+    Log::info("Info************************");
+    Log::error("Error************************");
     $email = Input::get('email');
-    $member =  $this->dealfishService->findMemberByEmail($email);
+    $member =  $this->dealfishService->checkExistingEmail($email);
     
     if($member==0){
       return Response::json(array('check_result'=>'ok'), 200);

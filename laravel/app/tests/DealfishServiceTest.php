@@ -6,9 +6,9 @@ class DealfishServiceTest extends TestCase{
   } 
   public function testGetMemberByExistingEmail(){
     $mockedDBQuery = \Mockery::mock('Member');
-    $mockedDBQuery->shouldReceive('where')->once()->andReturn($mockedDBQuery);
+    $mockedDBQuery->shouldReceive('where')->with('email', '=', 'existing@email.com')->once()->andReturn($mockedDBQuery);
     $mockedDBQuery->shouldReceive('count')->once()->andReturn(1);
     $dealfish = new DealfishServiceEloquent($mockedDBQuery);
-    $this->assertNotNull($dealfish->checkExistingEmail('notexisting@email.com'));
+    $this->assertEquals(1, $dealfish->checkExistingEmail('existing@email.com'));
   } 
 }

@@ -63,15 +63,15 @@ return array(
 			'prefix'    => '',
 		),
 
-		'pgsql' => array(
-			'driver'   => 'pgsql',
+		'mysql_item_connection' => array(
+			'driver'   => 'mysql',
 			'host'     => 'localhost',
-			'database' => 'database',
+			'database' => 'cls_01',
 			'username' => 'root',
 			'password' => '',
 			'charset'  => 'utf8',
 			'prefix'   => '',
-			'schema'   => 'public',
+			'collation'   => 'utf8_unicode_ci',
 		),
 
 		'sqlsrv' => array(
