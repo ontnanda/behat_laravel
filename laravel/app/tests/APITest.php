@@ -1,8 +1,20 @@
 <?php
 use Way\Tests\Factory;
+use Zizaco\FactoryMuff\Facade\FactoryMuff;
 class APITest extends TestCase {
+  public function __construct(){
+    $this->factory = new FactoryMuff;
+  }
+
   public function teardown(){
     \Mockery::close();
+  }
+
+  public function testGetAllUser(){
+    $first_member = FactoryMuff::create('User');
+    $second_member = FactoryMuff::create('User');
+    $this->assertNotNull($first_member);
+    $this->assertNotNull($second_member);
   }
 
   public function testCheckemailWithVelidEmail(){

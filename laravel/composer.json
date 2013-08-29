@@ -10,7 +10,8 @@
     "way/generators": "dev-master"
 	},
   "require-dev":{
-    "way/laravel-test-helpers": "dev-master"
+    "way/laravel-test-helpers": "dev-master",
+    "zizaco/factory-muff": "dev-master"
   },
 	"autoload": {
 		"classmap": [
