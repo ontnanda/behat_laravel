@@ -17,6 +17,6 @@ Route::get('/', function()
 });
 
 Route::get('/item/{item_id}', 'ItemController@getItemById');
-Route::post('/member/checkEmail','APIController@getMemberByEmail');
+Route::post('/api/member/checkEmail','APIController@getMemberByEmail');
 App::bind('DealfishService', 'DealfishServiceEloquent');
 App::bind('Member', 'Member');

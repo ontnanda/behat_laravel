@@ -23,7 +23,7 @@ class APITest extends TestCase {
     $mockedService->shouldReceive('checkExistingEmail')->with($target_email)->once()->andReturn(0); 
     $this->app->instance('DealfishService', $mockedService);
 
-    $response = $this->call('POST', '/member/checkEmail', array('email'=>$target_email));
+    $response = $this->call('POST', '/api/member/checkEmail', array('email'=>$target_email));
     $content = $response->getContent();
     $data = json_decode($content);
     $this->assertJson($content);
@@ -36,7 +36,7 @@ class APITest extends TestCase {
     $mockedService->shouldReceive('checkExistingEmail')->with($duplicate_email)->once()->andReturn(1); 
     $this->app->instance('DealfishService', $mockedService);
 
-    $response = $this->call('POST', '/member/checkEmail', array('email'=>$duplicate_email));
+    $response = $this->call('POST', '/api/member/checkEmail', array('email'=>$duplicate_email));
     $content = $response->getContent();
     $data = json_decode($content);
     $this->assertJson($content);
